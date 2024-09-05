@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  background-image: url('imgs/2f3933c1ea1eea61c6c367ecc7336690\ 1.png');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: -1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-container {
+  padding: 2rem; /* Usando rem para tamanhos responsivos */
+  width: 100%;
+  max-width: 400px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 2rem; /* Espaçamento com rem */
+  font-size: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  color: #ddd;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 1rem; /* Usando rem para padding */
+  background-color: #6B8767;
+  margin: 0.625rem 0;
+  border: 1px solid #1C2921;
+  border-radius: 4px;
+  font-size: 1rem; /* Tamanho de fonte responsivo */
+  font-family: "Raleway", sans-serif;
+  color: #ddd;
+}
+
+.login-container input::placeholder {
+  color: #ddd;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 1rem; /* Padding com rem */
+  background-color: #1C2921;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem; /* Tamanho de fonte responsivo */
+  cursor: pointer;
+  font-family: "Raleway", sans-serif;
+}
+
+.login-container button:hover {
+  background-color: #15221C;
+}
+
+.login-container .forgot-password {
+  display: block;
+  text-align: center;
+  margin-top: 1.25rem; /* Usando rem para margem */
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  color: #ddd;
+}
+
+.login-container .forgot-password:hover {
+  color: #1C2921;
+}
+
+/* Responsividade para telas menores (tablets e smartphones) */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1.5rem; /* Reduzindo o padding */
+    max-width: 90vw; /* Largura máxima ajustável */
+  }
+
+  .login-container h2 {
+    font-size: 1.25rem; /* Diminuindo o tamanho da fonte */
+  }
+
+  .login-container input, .login-container button {
+    padding: 0.875rem; /* Ajustando padding em inputs e botão */
+    font-size: 0.875rem; /* Fonte menor */
+  }
+
+  .login-container .forgot-password {
+    font-size: 0.875rem; /* Ajuste para o link de "Esqueceu a senha" */
+  }
+}
+
+/* Para smartphones menores (até 480px) */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1rem;
+    max-width: 95vw; /* Quase tela cheia */
+  }
+
+  .login-container h2 {
+    font-size: 1rem; /* Fonte menor para se ajustar */
+  }
+
+  .login-container input, .login-container button {
+    padding: 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .login-container .forgot-password {
+    font-size: 0.75rem;
+  }
+}
