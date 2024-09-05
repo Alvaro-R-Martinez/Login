@@ -25,7 +25,7 @@ function enviarNotificacao() {
         navigator.serviceWorker.getRegistration().then(reg => {
             const options = {
                 body: 'Bem-vindo! Você fez login com sucesso.',
-                icon: 'https://via.placeholder.com/100', // Ícone da notificação
+                icon: './icons/icon-192x192.png', // Ícone da notificação
                 vibrate: [200, 100, 200],
                 tag: 'login-notification'
             };
