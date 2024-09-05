@@ -1,37 +1,28 @@
-// Adiciona a funcionalidade de push
-self.addEventListener('push', function(event) {
-  let data = event.data ? event.data.text() : 'Sem dados de push';
-
-  const options = {
-    body: data,
-    icon: '/icons/icon-192x192.png',
-    badge: '/icons/icon-192x192.png',
-    vibrate: [200, 100, 200],  // Vibração em dispositivos móveis
-    actions: [
-      {
-        action: 'explore',
-        title: 'Ver agora',
-        icon: '/icons/icon-192x192.png'
-      },
-      {
-        action: 'close',
-        title: 'Fechar',
-        icon: '/icons/icon-192x192.png'
-      }
-    ]
-  };
-
+self.addEventListener('install', event => {
+  console.log('Service Worker instalado');
   event.waitUntil(
-    self.registration.showNotification('Nova notificação', options)
+    caches.open('pwa-cache').then(cache => {
+      return cache.addAll([
+        '/',
+        '/manifest.json',
+        '/index.html',
+        '/styles.css'
+      ]);
+    })
   );
 });
 
-// Clique em notificação
-self.addEventListener('notificationclick', function(event) {
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
+  );
+});
+
+self.addEventListener('notificationclick', event => {
   event.notification.close();
-
-  if (event.action === 'explore') {
-    clients.openWindow('/');
-  }
-}, false);
-
+  event.waitUntil(
+    clients.openWindow('/')
+  );
+});
