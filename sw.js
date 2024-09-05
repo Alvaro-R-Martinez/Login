@@ -4,6 +4,7 @@ self.addEventListener('install', event => {
     caches.open('pwa-cache').then(cache => {
       return cache.addAll([
         '/',
+        '/manifest.json',
         '/index.html',
         '/styles.css'
       ]);
