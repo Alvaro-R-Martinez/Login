@@ -29,4 +29,5 @@ document.getElementById('login-btn').addEventListener('click', function(event) {
     } else {
       alert('Por favor, preencha todos os campos.');
     }
-  });  
+  });
+  
